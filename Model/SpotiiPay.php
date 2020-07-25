@@ -277,6 +277,8 @@ class SpotiiPay extends \Magento\Payment\Model\Method\AbstractMethod
     public function capture(\Magento\Payment\Model\InfoInterface $payment, $amount)
     {
         $this->spotiiHelper->logSpotiiActions("****Capture at Magento start****");
+        $this->spotiiHelper->logSpotiiActions("skipping FAE Spotiipay :: capture()");
+        return;
         if ($amount <= 0) {
             throw new LocalizedException(__('Invalid amount for capture.'));
         }
